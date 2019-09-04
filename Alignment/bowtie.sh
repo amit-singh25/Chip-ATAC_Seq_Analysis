@@ -2,7 +2,7 @@
 #PBS -N bowtie 
 ##PBS -j oe 
 ##PBS -l file=100GB
-#PBS-l mem=100G
+#PBS-l mem=32G
 #PBS -l walltime=50:13:59
 #PBS -l nodes=1:ppn=8   
 #PBS -o bowtie.stdout
@@ -32,10 +32,6 @@ samtools index ${out}/${name}_sort.bam
 bamCoverage -b ${out}/${name}_sort.bam -o ${out}/${name}_sort.bigWig
 ##convert bam file to bed file 
 bedtools bamtobed -${out}/${name}_sort.bam > ${out}/${name}_sort.bed
-
-
-
-
 
 
 ######single end
