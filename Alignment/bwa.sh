@@ -14,9 +14,22 @@ cd $PBS_O_WORKDIR
 
 name=$1
 
-index=~/igenome/Homo_sapiens/Ensembl/GRCh37/Sequence/Bowtie2Index
+index=~/genome/mouse/bwa
 out=~/chip_ana
 data=~/chip_data
 
 #### creat index first
 #bwa index -a bwtsw mouse_genome.fa
+
+bwa mem -t 16 ${index}/mouse_genome ${data}/${name}_1.fastq -2 ${data}/${name}_2.fastq >${out}/${name}.sam
+
+##convert sam file to bam 
+samtools view -bS ${out}/${name}.sam > ${out}/${name}.bam
+##sort bam file 
+samtools sort ${out}/${name}.bam >${out}/${name}_sort.bam
+##index bam file
+samtools index ${out}/${name}_sort.bam
+##convert bigwig file
+bamCoverage -b ${out}/${name}_sort.bam -o ${out}/${name}_sort.bigWig
+##convert bam file to bed file 
+bedtools bamtobed -${out}/${name}_sort.bam > ${out}/${name}_sort.bed
