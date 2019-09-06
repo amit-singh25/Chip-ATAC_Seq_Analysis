@@ -2,8 +2,8 @@
 # Chip seq and ATAC seq analysis pipeline
 ## Table of contents
 * [Quality control](#Quality-control)
-* [Quality control](#Quality control)
-* [Setup](#setup)
+* [Alignment](#Alignment)
+* [Peak Calling](#Peak Calling)
 
 
 ## Quality control
