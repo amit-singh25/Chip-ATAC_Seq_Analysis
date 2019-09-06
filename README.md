@@ -4,7 +4,7 @@
 * [Quality control](#Quality-control)
 * [Alignment](#Alignment)
 * [Peak Calling](#Peak-Calling)
-* [peak annotation](# peak annotation)
+* [peak annotation](#peak annotation)
 
 
 ## Quality control
