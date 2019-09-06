@@ -3,7 +3,7 @@
 ## Table of contents
 * [Quality control](#Quality control)
 
-* [Technologies](#technologies)
+* [Quality control](#Quality control)
 * [Setup](#setup)
 
 
