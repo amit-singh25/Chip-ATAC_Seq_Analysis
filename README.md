@@ -1,1 +1,1 @@
-# Chip_seq_Analysis
+# Chip seq Analysis and ATAC seq analysis pipeline 
