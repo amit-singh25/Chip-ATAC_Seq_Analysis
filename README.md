@@ -3,7 +3,7 @@
 ## Table of contents
 * [Quality control](#Quality-control)
 * [Alignment](#Alignment)
-* [Peak Calling](#Peak Calling)
+* [Peak Calling](#Peak-Calling)
 
 
 ## Quality control
