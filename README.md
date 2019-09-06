@@ -1,5 +1,10 @@
 
-# Project Title
+# Chip seq Analysis and ATAC seq analysis pipeline
+## Table of contents
+* [Quality control](#Quality control)
+* [Technologies](#technologies)
+* [Setup](#setup)
+
 
 #Chip seq Analysis and ATAC seq analysis pipeline
 Quality control
