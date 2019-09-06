@@ -1,7 +1,7 @@
 
 # Chip seq and ATAC seq analysis pipeline
 ## Table of contents
-* [General info](#general-info)
+* [Quality info](#general-info)
 * [Quality control](#Quality control)
 * [Setup](#setup)
 
