@@ -18,4 +18,4 @@ The next step is to align the reads to a reference genome. There are many progra
 Model-based Analysis of ChIP-Seq [(MACS2)](http://liulab.dfci.harvard.edu/MACS/index.html) is a program for detecting regions of genomic enrichment. Altough MACS2 initially designed for  ChIP-seq, but it works nicely on ATAC-seq aswell and other genome-wide enrichment assays that have narrow peaks. 
 
 ## Peak annotation
-HOMER is a suite of software designed for motif discovery. It takes a peak file as input and checks for the enrichment of both known sequence motifs and de novo motifs.
+[HOMER](http://homer.ucsd.edu/homer/index.html) is a suite of software designed for motif discovery. It takes a MACS peak file bed format as a input and checks for the enrichment of both known sequence motifs and de novo motifs and annotate the peak based on the genome co-ordinate.
