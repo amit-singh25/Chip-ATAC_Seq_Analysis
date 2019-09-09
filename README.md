@@ -92,8 +92,8 @@ Three key characteristics used to identify an enhancer region.
 2. Active enhancer regions are typically enriched with a posttranslational modification histone mark such as monomethylation at H3 lysine 4 (H3K4me1) and acetylation at H3 lysine 27 (H3K27ac). 
 3. Putative enhancer regions often contain conserved DNA sequences for binding to specific transcription factors.
 
-Following tool can be used to find the super enhnacer. 
-[ROSE](http://younglab.wi.mit.edu/super_enhancer_code.html)
+Tool can be used to find the super enhnacer. 
+[ROSE](http://younglab.wi.mit.edu/super_enhancer_code.html) and 
 [Homer](http://homer.ucsd.edu/homer/ngs/peaks.html#Finding_Super_Enhancers)
 
 
