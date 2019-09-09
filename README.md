@@ -14,6 +14,7 @@ Required packages for processing the ATAC-seq pipeline
 Following softwear can be install in the cluster either from source code or from conda platform (https://conda.io/en/latest/) 
 
 FastQC  https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+
 Bowtie2  http://bowtie-bio.sourceforge.net/bowtie2/index.shtml
 
 samtools http://samtools.sourceforge.net/
@@ -35,16 +36,17 @@ The R package ATACseqQC (https://bioconductor.org/packages/release/bioc/html/ATA
 It is generally a good idea to generate some quality metrics for raw sequence data using FastQC.
 
 ## Alignment
-The next step is to align the reads to a reference genome. There are many programs available to perform the alignment. Two of the most popular are [BWA](http://bio-bwa.sourceforge.net/bwa.shtml) and [Bowtie2](http://bowtie-bio.sourceforge.net/index.shtml). We will focus on Bowtie2 here.
+The next step is to align the reads to a reference genome. There are many programs available to perform the alignment. Two of the most popular are [BWA](http://bio-bwa.sourceforge.net/bwa.shtml) and [Bowtie2](http://bowtie-bio.sourceforge.net/index.shtml). Here focus more on Bowtie2.
 
 ### Mitochondrial reads
+
 It is known problem that ATAC-seq datasets usually contain a large percentage of reads that are derived from mitochondrial DNA.
-Regardless of lab protocol, it is obvious to have some mitochondrial reads in the sequence data. Since there are no ATAC-seq peaks of interest in the mitochondrial genome, these reads will only complicate the subsequent steps. Therefore, we need to remove from further analysis.
+Regardless of lab protocol, it is obvious to have some mitochondrial reads in the sequence data. Otehr hand there are no ATAC-seq peaks of interest in the mitochondrial genome. Therefore, we need to remove mitochondrial genome from further analysis.
+Two way one can proceed.
 
 1. Remove the mitochondrial genome from the reference genome before aligning the reads. In this approach the alignment numbers will look much worse; all of the mitochondrial reads will count as unaligned.
 
-2. Remove the mitochondrial reads after alignment. A python script, creatively named removeChrom, is available in the ATAC-seq module to accomplish this. For example, to remove all 'chrM' reads from a BAM file, one would run this:
-
+2. Remove the mitochondrial reads after alignment. 
 
 
 ## Peak Calling
