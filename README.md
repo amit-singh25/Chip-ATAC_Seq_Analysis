@@ -9,6 +9,7 @@
 * [Alignment and filtering](#Alignment-filtering )
 * [Peak Calling](#Peak-Calling)
 * [Peak annotation](#peak-annotation)
+* [Visualization](#Visualization)
 
 ## Software Requirement
 Required packages for processing the ATAC-seq pipeline.
