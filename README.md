@@ -61,13 +61,20 @@ Two way one can proceed.
 
 2. Remove the mitochondrial reads after alignment. 
 
-### PCR duplicates
+#### PCR duplicates
 
 During library preparation procedure some PCR artifacts may arise that might interfere with the biological signal of interest 
 Therefore, they should be removed as part of the analysis pipeline before peak calling. 
 One commonly used program for removing PCR duplicates is Picard’s MarkDuplicates (https://broadinstitute.github.io/picard/). Removal of PCR duplicates may not necessary in Chip seq data.To undertand the samtool format in https://www.samformat.info/sam-format-flag
 
+#### Non-unique alignments
 
+ENCODE or in some papers, people are used to remove unmapped, duplicates and properly mapped reads(samtoolf flag 1796 or 1804) uisng samtools
+samtools view -h -b -F 1804 -f 2 ${name}.bam > ${name}.filtered.bam
+# Remove multi-mapped reads (i.e. those with MAPQ < 30, using -q in SAMtools)
+samtools view -h -q 30 ${sample}.bam > ${sample}.rmMulti.bam
+
+Remove multi-mapped reads (i.e. those with MAPQ < 30, using -q in SAMtools)
 ## Peak Calling
 Model-based Analysis of ChIP-Seq [(MACS2)](http://liulab.dfci.harvard.edu/MACS/index.html) is a program for detecting regions of genomic enrichment. Altough MACS2 initially designed for  ChIP-seq, but it works nicely on ATAC-seq aswell and other genome-wide enrichment assays that have narrow peaks. 
 
