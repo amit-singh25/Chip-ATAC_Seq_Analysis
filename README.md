@@ -8,9 +8,10 @@
 * [Quality control](#Quality-control)
 * [Alignment and filtering](#Alignment-filtering )
 * [Peak Calling](#Peak-Calling)
+* [Visualization](#Visualization)
 * [Peak annotation](#peak-annotation)
 * [Identification of Super Enhancers](#peak-annotation)
-* [Visualization](#Visualization)
+
 
 ## Software Requirement
 Required packages for processing the ATAC-seq pipeline.
@@ -87,11 +88,9 @@ Model-based Analysis of ChIP-Seq [(MACS2)](http://liulab.dfci.harvard.edu/MACS/i
 ## Visualization
 
 #### Creating browser tracks
-Create a bigWig file for visualizing the peak covrage using bamCoverage in deepTools
- 
-An alternative visualization tool is the [Integrative Genomics Viewer](https://software.broadinstitute.org/software/igv/). Peak files can be loaded directly (File → Load from File). Viewing BAM files with IGV requires that they be sorted (by coordinate) and indexed using SAMtools.
-
-
+Create a bigWig file for visualizing the peak covrage using bamCoverage in deepTools. 
+An alternative visualization tool is [Integrative Genomics Viewer](https://software.broadinstitute.org/software/igv/).The Peak files can be loaded directly (File → Load from File). Viewing BAM files with IGV requires sorted (by coordinate) and indexed using SAMtools.
+For making plot BAM file can be converted to bed (bam to bed) using [bedtools](https://bedtools.readthedocs.io/en/latest/content/tools/bamtobed.html) and load to IGV.  
 
 ## Peak annotation
 
