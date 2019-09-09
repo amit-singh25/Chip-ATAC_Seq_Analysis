@@ -73,10 +73,10 @@ One commonly used program for removing PCR duplicates is Picard’s [MarkDuplica
 
 ENCODE or in some papers, people are used to remove unmapped, duplicates and properly mapped reads(samtoolf flag 1796 or 1804) uisng samtools
 samtools view -h -b -F 1804 -f 2 ${name}.bam > ${name}.filtered.bam
-# Remove multi-mapped reads (i.e. those with MAPQ < 30, using -q in SAMtools)
-samtools view -h -q 30 ${sample}.bam > ${sample}.rmMulti.bam
+Remove multi-mapped reads
+samtools view -h -q 30 ${name}.bam > ${name}.rmmulti.bam
 
-Remove multi-mapped reads (i.e. those with MAPQ < 30, using -q in SAMtools)
+
 ## Peak Calling
 Model-based Analysis of ChIP-Seq [(MACS2)](http://liulab.dfci.harvard.edu/MACS/index.html) is a program for detecting regions of genomic enrichment. Altough MACS2 initially designed for  ChIP-seq, but it works nicely on ATAC-seq aswell and other genome-wide enrichment assays that have narrow peaks. 
 
