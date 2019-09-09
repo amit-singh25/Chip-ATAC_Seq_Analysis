@@ -10,50 +10,25 @@
 * [Peak Calling](#Peak-Calling)
 * [Peak annotation](#peak-annotation)
 
+Required packages for processing the ATAC-seq pipeline
+Following softwear can be install in the cluster either from source code or from conda platform (https://conda.io/en/latest/) 
 
+FastQC  https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+Bowtie2  http://bowtie-bio.sourceforge.net/bowtie2/index.shtml
 
+samtools http://samtools.sourceforge.net/
 
+PICARD tools https://broadinstitute.github.io/picard/
 
+deepTools https://deeptools.readthedocs.io/en/develop/
 
+MACS2  https://github.com/taoliu/MACS
 
-Required packages for executing basic ATAC-seq pipeline
-When executing basic ATAC-seq pipeline, user should install following packages / libraries in the system:
+HOMER http://homer.ucsd.edu/homer/
 
-Bowtie2 (we have used version 2.3.3.1) http://bowtie-bio.sourceforge.net/bowtie2/index.shtml
-
-samtools (we have used version 1.6) http://samtools.sourceforge.net/
-
-PICARD tools (we have used 2.7.1 version) https://broadinstitute.github.io/picard/
-
-Utilities "bedGraphToBigWig", "bedSort", "bigBedToBed", "hubCheck" and "fetchChromSizes" downloaded from UCSC repository. Executables corresponding to the linux system, for example, is provided in this link: http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/
-
-deepTools (we have used version 2.0) https://deeptools.readthedocs.io/en/develop/
-
-MACS2 (we have used version 2.1.1) https://github.com/taoliu/MACS
-
-HOMER (we recommend using the latest version) http://homer.ucsd.edu/homer/
-
-R environment (we have used 3.4.3)
+R environment 
 
 The R package ATACseqQC (https://bioconductor.org/packages/release/bioc/html/ATACseqQC.html) and its associated dependencies.
-
-Python version 2.7, along with the package levenshtein (pip install python-levenshtein)
-
-User should include the PATH of above mentioned libraries / packages inside their SYSTEM PATH variable. Some of these PATHS are also to be mentioned in a separate configuration file (mentioned below).
-
-Required packages for executing IDR code
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Quality control
 ### FastQC
