@@ -3,6 +3,7 @@ library(Sushi)
 library(GenomicRanges)
 library(rtracklayer)
 library(Rsamtools)
+source("Sushi_plot_ana.R")
 gtf<-import("~/gene.gtf")
 ###Read homer annotate peak file  
 
