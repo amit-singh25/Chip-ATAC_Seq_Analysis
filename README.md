@@ -6,7 +6,7 @@
 ## Table of contents
 * [Required packages](#QRequired-packages)
 * [Quality control](#Quality-control)
-* [Alignment](#Alignment)
+* [Alignment and filtering](#Alignment-filtering )
 * [Peak Calling](#Peak-Calling)
 * [Peak annotation](#peak-annotation)
 
@@ -15,7 +15,9 @@ Required packages for processing the ATAC-seq pipeline.
 Following softwear can be install in the cluster either from source code or from conda platform (https://conda.io/en/latest/) 
 
 FastQC  https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+
 Flexbar (https://github.com/seqan/flexbar)
+
 Bowtie2  http://bowtie-bio.sourceforge.net/bowtie2/index.shtml
 
 samtools http://samtools.sourceforge.net/
@@ -33,11 +35,13 @@ R environment
 The R package ATACseqQC (https://bioconductor.org/packages/release/bioc/html/ATACseqQC.html) and its associated dependencies.
 
 ## Quality control
+
 ### FastQC
-It is generally a good idea to generate some quality metrics for raw sequence data using FastQC. 
+It is generally a good idea to generate some quality metrics for raw sequence data using [FastQC]( https://www.bioinformatics.babraham.ac.uk/projects/fastqc/). 
+
 Quality-based trimming as well as Adapter removal can be done in [Flexbar](https://github.com/seqan/flexbar)
 
-## Alignment
+## Alignment and filtering 
 The next step is to align the reads to a reference genome. There are many programs available to perform the alignment. Two of the most popular are [BWA](http://bio-bwa.sourceforge.net/bwa.shtml) and [Bowtie2](http://bowtie-bio.sourceforge.net/index.shtml). Here focus more on Bowtie2.
 
 ### Mitochondrial reads
@@ -56,6 +60,7 @@ During library preparation procedure some PCR artifacts may arise that might int
 Therefore, they should be removed as part of the analysis pipeline before peak calling. 
 One commonly used program for removing PCR duplicates is Picard’s MarkDuplicates (https://broadinstitute.github.io/picard/). Removal of PCR duplicates may not necessary in Chip seq data.To undertand the samtool format in https://www.samformat.info/sam-format-flag
 
+### PCR duplicates
 
 ## Peak Calling
 Model-based Analysis of ChIP-Seq [(MACS2)](http://liulab.dfci.harvard.edu/MACS/index.html) is a program for detecting regions of genomic enrichment. Altough MACS2 initially designed for  ChIP-seq, but it works nicely on ATAC-seq aswell and other genome-wide enrichment assays that have narrow peaks. 
