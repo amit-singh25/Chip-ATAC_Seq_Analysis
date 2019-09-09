@@ -10,7 +10,6 @@
 * [Peak Calling](#Peak-Calling)
 * [Peak annotation](#peak-annotation)
 * [Identification of Super Enhancers](#peak-annotation)
-* [Identification of Super Enhancers](#Identification of Super Enhancers)
 * [Visualization](#Visualization)
 
 ## Software Requirement
