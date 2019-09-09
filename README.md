@@ -14,25 +14,25 @@ Required packages for processing the ATAC-seq pipeline.
 
 Following softwear can be install in the cluster either from source code or from conda platform (https://conda.io/en/latest/) 
 
-FastQC  https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+[FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
-Flexbar (https://github.com/seqan/flexbar)
+[Flexbar](https://github.com/seqan/flexbar)
 
-Bowtie2  http://bowtie-bio.sourceforge.net/bowtie2/index.shtml
+[Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 
-samtools http://samtools.sourceforge.net/
+[samtools](http://samtools.sourceforge.net/)
 
-PICARD tools https://broadinstitute.github.io/picard/
+[PICARD](https://broadinstitute.github.io/picard)
 
-deepTools https://deeptools.readthedocs.io/en/develop/
+[deepTools](https://deeptools.readthedocs.io/en/develop/)
 
-MACS2  https://github.com/taoliu/MACS
+[MACS2](https://github.com/taoliu/MACS)
 
-HOMER http://homer.ucsd.edu/homer/
+[HOMER](http://homer.ucsd.edu/homer/)
 
 R environment 
 
-The R package ATACseqQC (https://bioconductor.org/packages/release/bioc/html/ATACseqQC.html) and its associated dependencies.
+The R package [ATACseqQC](https://bioconductor.org/packages/release/bioc/html/ATACseqQC.html) and its associated dependencies.
 
 ## Quality control
 
