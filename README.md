@@ -52,7 +52,7 @@ Two way one can proceed.
 ### PCR duplicates
 During library preparation procedure some PCR artifacts may arise that might interfere with the biological signal of interest 
 Therefore, they should be removed as part of the analysis pipeline before peak calling. 
-
+One commonly used program for removing PCR duplicates is Picard’s MarkDuplicates (https://broadinstitute.github.io/picard/). Removal of PCR duplicates may not necessary in Chip seq data. 
 
 
 ## Peak Calling
