@@ -82,10 +82,21 @@ Remove multi-mapped reads
 samtools view -h -q 30 ${name}.bam > ${name}.rmmulti.bam
 
 ## Peak Calling
-Model-based Analysis of ChIP-Seq [(MACS2)](http://liulab.dfci.harvard.edu/MACS/index.html) is a program for detecting regions of genomic enrichment. Altough MACS2 initially designed for  ChIP-seq, but it works nicely on ATAC-seq aswell and other genome-wide enrichment assays that have narrow peaks. 
+Model-based Analysis of ChIP-Seq [(MACS2)](http://liulab.dfci.harvard.edu/MACS/index.html) is a program for detecting regions of genomic enrichment. Altough MACS2 initially designed for  ChIP-seq, but it works nicely on ATAC-seq aswell and other genome-wide enrichment assays that have narrow peaks.
+
+## Visualization
+
+#### Creating browser tracks
+Create a bigWig file for visualizing the peak covrage using bamCoverage in deepTools
+ 
+An alternative visualization tool is the [Integrative Genomics Viewer](https://software.broadinstitute.org/software/igv/). Peak files can be loaded directly (File → Load from File). Viewing BAM files with IGV requires that they be sorted (by coordinate) and indexed using SAMtools.
+
+
 
 ## Peak annotation
+
 [HOMER](http://homer.ucsd.edu/homer/index.html) is a suite of software designed for motif discovery. It takes a MACS peak file bed format as a input and checks for the enrichment of both known sequence motifs and de novo motifs and annotate the peak based on the genome co-ordinate.
+
 ## Identification of Super Enhancers
 Three key characteristics used to identify an enhancer region.
 1. Active enhancers are found in open chromatin regions devoid of nucleosomes, which allows for binding of the transcriptional machinery, including RNA polymerase, transcription factors, and co-activators.
@@ -96,6 +107,4 @@ Tool can be used to find the super enhnacer.
 [ROSE](http://younglab.wi.mit.edu/super_enhancer_code.html) and 
 [Homer](http://homer.ucsd.edu/homer/ngs/peaks.html#Finding_Super_Enhancers)
 
-
-## Visualization
 
