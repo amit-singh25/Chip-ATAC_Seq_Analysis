@@ -34,7 +34,8 @@ The R package ATACseqQC (https://bioconductor.org/packages/release/bioc/html/ATA
 
 ## Quality control
 ### FastQC
-It is generally a good idea to generate some quality metrics for raw sequence data using FastQC.
+It is generally a good idea to generate some quality metrics for raw sequence data using FastQC. 
+Quality-based trimming as well as Adapter removal can be done in [Flexbar] https://github.com/seqan/flexbar 
 
 ## Alignment
 The next step is to align the reads to a reference genome. There are many programs available to perform the alignment. Two of the most popular are [BWA](http://bio-bwa.sourceforge.net/bwa.shtml) and [Bowtie2](http://bowtie-bio.sourceforge.net/index.shtml). Here focus more on Bowtie2.
