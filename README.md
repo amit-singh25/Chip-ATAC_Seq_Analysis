@@ -9,6 +9,7 @@
 * [Alignment and filtering](#Alignment-filtering )
 * [Peak Calling](#Peak-Calling)
 * [Peak annotation](#peak-annotation)
+* [Identification of Super Enhancers]
 * [Visualization](#Visualization)
 
 ## Software Requirement
@@ -85,6 +86,13 @@ Model-based Analysis of ChIP-Seq [(MACS2)](http://liulab.dfci.harvard.edu/MACS/i
 
 ## Peak annotation
 [HOMER](http://homer.ucsd.edu/homer/index.html) is a suite of software designed for motif discovery. It takes a MACS peak file bed format as a input and checks for the enrichment of both known sequence motifs and de novo motifs and annotate the peak based on the genome co-ordinate.
+## Identification of Super Enhancers
+Three key characteristics used to identify an enhancer region.
+1. Active enhancers are found in open chromatin regions devoid of nucleosomes, which allows for binding of the transcriptional machinery, including RNA polymerase, transcription factors, and co-activators.
+2. Active enhancer regions are typically enriched with a posttranslational modification histone mark such as monomethylation at H3 lysine 4 (H3K4me1) and acetylation at H3 lysine 27 (H3K27ac). 
+3. Putative enhancer regions often contain conserved DNA sequences for binding to specific transcription factors.
+
+
 
 ## Visualization
 
