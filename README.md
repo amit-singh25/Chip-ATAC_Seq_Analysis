@@ -3,13 +3,14 @@
 
 
 
-## Table of contents
-* [Required packages](#QRequired-packages)
+# Table of content
+* [Software Requirement](#QRequired-packages)
 * [Quality control](#Quality-control)
 * [Alignment and filtering](#Alignment-filtering )
 * [Peak Calling](#Peak-Calling)
 * [Peak annotation](#peak-annotation)
 
+## Software Requirement
 Required packages for processing the ATAC-seq pipeline.
 
 Following softwear can be install in the cluster either from source code or from conda platform (https://conda.io/en/latest/) 
