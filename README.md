@@ -42,9 +42,16 @@ It is generally a good idea to generate some quality metrics for raw sequence da
 Quality-based trimming as well as Adapter removal can be done in [Flexbar](https://github.com/seqan/flexbar)
 
 ## Alignment and filtering 
+#### Genome indexing
+
+For many model organisms, the genome and pre-built reference indexes are available from [iGenomes](https://support.illumina.com/sequencing/sequencing_software/igenome.html). Bowtie2 indexes can be made directly from [FASTA] (ftp://ftp.ensembl.org/pub/release-97/fasta/)genome file using bowtie2-buid. 
+
+#### Alignment
+
 The next step is to align the reads to a reference genome. There are many programs available to perform the alignment. Two of the most popular are [BWA](http://bio-bwa.sourceforge.net/bwa.shtml) and [Bowtie2](http://bowtie-bio.sourceforge.net/index.shtml). Here focus more on Bowtie2.
 
-### Mitochondrial reads
+## Alignment Manipulation
+#### Mitochondrial reads
 
 It is known problem that ATAC-seq datasets usually contain a large percentage of reads that are derived from mitochondrial DNA.
 Regardless of lab protocol, it is obvious to have some mitochondrial reads in the sequence data. Otehr hand there are no ATAC-seq peaks of interest in the mitochondrial genome. Therefore, we need to remove mitochondrial genome from further analysis.
@@ -60,7 +67,6 @@ During library preparation procedure some PCR artifacts may arise that might int
 Therefore, they should be removed as part of the analysis pipeline before peak calling. 
 One commonly used program for removing PCR duplicates is Picard’s MarkDuplicates (https://broadinstitute.github.io/picard/). Removal of PCR duplicates may not necessary in Chip seq data.To undertand the samtool format in https://www.samformat.info/sam-format-flag
 
-### PCR duplicates
 
 ## Peak Calling
 Model-based Analysis of ChIP-Seq [(MACS2)](http://liulab.dfci.harvard.edu/MACS/index.html) is a program for detecting regions of genomic enrichment. Altough MACS2 initially designed for  ChIP-seq, but it works nicely on ATAC-seq aswell and other genome-wide enrichment assays that have narrow peaks. 
