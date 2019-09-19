@@ -60,3 +60,26 @@ samtools sort ${out}/${name}.bam >${out}/${name}_sort.bam
 samtools index ${out}/${name}_sort.bam
 bedtools bamtobed -i ${out}/${name}_sort.bam >${out}/${name}_sort.bed
 bamCoverage -b ${out}/${name}_sort.bam -o ${out}/${name}_sort.bigWig
+
+
+
+
+########## for sbatch 
+#!/bin/sh
+#SBATCH --job-name=Bowtie
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --time=168:00:00
+#SBATCH --mem=10gb
+#SBATCH --output=Bowtie.%J.out
+#SBATCH --error=Bowtie.%J.err
+module load bowtie/1.1
+#########
+
+
+
+
+
+
+
+
