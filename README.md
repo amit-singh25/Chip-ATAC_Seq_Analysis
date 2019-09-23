@@ -14,11 +14,10 @@
 
 
 ## Software Requirement
-``` ```
-or ` `
+
 Required packages for processing the ATAC-seq pipeline.
 
-Following softwear can be install in the cluster either from source code or from [conda](https://conda.io/en/latest/) platform 
+Following softwear can be installed in the cluster either from source code or from [conda](https://conda.io/en/latest/) platform 
 
 [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
