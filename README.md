@@ -77,7 +77,7 @@ One commonly used program for removing PCR duplicates is Picard’s [MarkDuplica
 
 ENCODE or in some papers, people are used to remove unmapped, duplicates and properly mapped reads (samtoolf flag 1796 or 1804) uisng samtools
 
-samtools view -h -b -F 1804 -f 2 ${name}.bam > ${name}.filtered.bam
+```samtools view -h -b -F 1804 -f 2 ${name}.bam > ${name}.filtered.bam ```
 
 Remove multi-mapped reads
 
