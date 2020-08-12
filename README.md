@@ -73,6 +73,10 @@ During library preparation procedure some PCR artifacts may arise that might int
 Therefore, they should be removed as part of the analysis pipeline before peak calling. 
 One commonly used program for removing PCR duplicates is Picard’s [MarkDuplicates](https://broadinstitute.github.io/picard/). Removal of PCR duplicates may not necessary in Chip seq data. To undertand the flag number and [samtool format](https://www.samformat.info/sam-format-flag) look her. 
 
+
+```picard MarkDuplicates I=sample1_sort.bam O=sample1_sort_clean.bam M=dups.txt REMOVE_DUPLICATES=true```
+``` macs2 filterdup -i "sample_sorted.bam" -f BAM -g hs --keep-dup=1  --verbose=3 -o "sample_sorted_filterdup.bed" ```
+
 #### Non-unique alignments
 
 ENCODE or in some papers, people are used to remove unmapped, duplicates and properly mapped reads (samtoolf flag 1796 or 1804) uisng samtools
@@ -85,6 +89,12 @@ Remove multi-mapped reads
 
 ## Peak Calling
 Model-based Analysis of ChIP-Seq [(MACS2)](http://liulab.dfci.harvard.edu/MACS/index.html) is a program for detecting regions of genomic enrichment. Altough MACS2 initially designed for  ChIP-seq, but it works nicely on ATAC-seq aswell and other genome-wide enrichment assays that have narrow peaks.
+predcit farngment lenagth
+
+```macs2 predictd -i sample_sorted_filterdup.bed -g hs -m 5 20```
+```macs2 callpeak -t "sample1.fastq_sorted.bam" -c "control.fastq_sorted.bam" -g hs -f BAM --keep-dup auto --bdg --outdir "~/Desktop/peak_folder" ```
+Select fragment size
+```macs2 callpeak -t "sample1.fastq_sorted.bam" -c "control.fastq_sorted.bam" -g hs -f BAM --keep-dup auto --bdg --nomodel --extsize 270 --outdir "~/Desktop/peak_folder" ```
 
 ## Visualization
 
