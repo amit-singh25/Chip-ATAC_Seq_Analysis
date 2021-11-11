@@ -17,7 +17,9 @@
 
 Required packages for processing the ATAC-seq pipeline.
 
-Following softwear can be installed in the cluster either from source code or from [conda](https://conda.io/en/latest/) platform 
+Required packages for processing the ATAC-seq pipeline.
+
+The following software can be installed in the cluster either from source code or from conda[conda](https://conda.io/en/latest/) platform.
 
 [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
@@ -42,14 +44,13 @@ The R package [ATACseqQC](https://bioconductor.org/packages/release/bioc/html/AT
 ## Quality control
 
 ### FastQC
-It is generally a good idea to generate some quality metrics for raw sequence data using [FastQC]( https://www.bioinformatics.babraham.ac.uk/projects/fastqc/). 
+It is generally a good idea to generate some quality metrics for raw sequence data using [FastQC]( https://www.bioinformatics.babraham.ac.uk/projects/fastqc/).
 
-Quality-based trimming as well as Adapter removal can be done in [Flexbar](https://github.com/seqan/flexbar)
-
-## Alignment and filtering 
+Quality-based trimming, as well as Adapter removal, can be done in [Flexbar](https://github.com/seqan/flexbar)
+## Alignment and filtering
 #### Genome indexing
 
-For many model organisms, the genome and pre-built reference indexes are available from [iGenomes](https://support.illumina.com/sequencing/sequencing_software/igenome.html). Bowtie2 indexes can be made directly from [FASTA](ftp://ftp.ensembl.org/pub/release-97/fasta/)genome file using bowtie2-buid. 
+For many model organisms, the genome and pre-built reference indexes are available from [iGenomes](https://support.illumina.com/sequencing/sequencing_software/igenome.html). Bowtie2 indexes can be made directly from [FASTA](ftp://ftp.ensembl.org/pub/release-97/fasta/)genome file using bowtie2-build.
 
 #### Alignment
 
@@ -59,19 +60,19 @@ The next step is to align the reads to a reference genome. There are many progra
 
 #### Mitochondrial reads
 
-It is known problem that ATAC-seq datasets usually contain a large percentage of reads that are derived from mitochondrial DNA.
-Regardless of lab protocol, it is obvious to have some mitochondrial reads in the sequence data. Otehr hand there are no ATAC-seq peaks of interest in the mitochondrial genome. Therefore, we need to remove mitochondrial genome from further analysis.
-Two way one can proceed.
+It is a known problem that ATAC-seq datasets usually contain a large percentage of reads that are derived from mitochondrial DNA.
+Regardless of lab protocol, it is obvious to have some mitochondrial reads in the sequence data. Other hands there are no ATAC-seq peaks of interest in the mitochondrial genome. Therefore, we need to remove the mitochondrial genome from further analysis.
+Two ways one can proceed.
 
 1. Remove the mitochondrial genome from the reference genome before aligning the reads. In this approach the alignment numbers will look much worse; all of the mitochondrial reads will count as unaligned.
 
-2. Remove the mitochondrial reads after alignment. 
+2. Remove the mitochondrial reads after alignment.
 
 #### PCR duplicates
 
-During library preparation procedure some PCR artifacts may arise that might interfere with the biological signal of interest 
-Therefore, they should be removed as part of the analysis pipeline before peak calling. 
-One commonly used program for removing PCR duplicates is Picard’s [MarkDuplicates](https://broadinstitute.github.io/picard/). Removal of PCR duplicates may not necessary in Chip seq data. To undertand the flag number and [samtool format](https://www.samformat.info/sam-format-flag) look her. 
+During the library preparation procedure some PCR artifacts may arise that might interfere with the biological signal of interest
+Therefore, they should be removed as part of the analysis pipeline before peak calling.
+One commonly used program for removing PCR duplicates is Picard’s [MarkDuplicates](https://broadinstitute.github.io/picard/). Removal of PCR duplicates may not necessary in Chip seq data. To understand the flag number and [samtool format](https://www.samformat.info/sam-format-flag) look here.
 
 
 ```picard MarkDuplicates I=sample1_sort.bam O=sample1_sort_clean.bam M=dups.txt REMOVE_DUPLICATES=true```
@@ -79,7 +80,7 @@ One commonly used program for removing PCR duplicates is Picard’s [MarkDuplica
 
 #### Non-unique alignments
 
-ENCODE or in some papers, people are used to remove unmapped, duplicates and properly mapped reads (samtoolf flag 1796 or 1804) uisng samtools
+ENCODE or in some papers, people are used to removing unmapped, duplicates, and properly mapped reads (samtoolf flag 1796 or 1804) using samtools
 
 ```samtools view -h -b -F 1804 -f 2 ${name}.bam > ${name}.filtered.bam ```
 
@@ -88,8 +89,8 @@ Remove multi-mapped reads
 ``` samtools view -h -q 30 ${name}.bam > ${name}.rmmulti.bam ```
 
 ## Peak Calling
-Model-based Analysis of ChIP-Seq [(MACS2)](http://liulab.dfci.harvard.edu/MACS/index.html) is a program for detecting regions of genomic enrichment. Altough MACS2 initially designed for  ChIP-seq, but it works nicely on ATAC-seq aswell and other genome-wide enrichment assays that have narrow peaks.
-predcit farngment lenagth
+Model-based Analysis of ChIP-Seq [(MACS2)](http://liulab.dfci.harvard.edu/MACS/index.html) is a program for detecting regions of genomic enrichment. Although MACS2 was initially designed for  ChIP-seq, it works nicely on ATAC-seq as well and other genome-wide enrichment assays that have narrow peaks.
+predict fragment length
 
 ```macs2 predictd -i sample_sorted_filterdup.bed -g hs -m 5 20```
 ```macs2 callpeak -t "sample1.fastq_sorted.bam" -c "control.fastq_sorted.bam" -g hs -f BAM --keep-dup auto --bdg --outdir "~/Desktop/peak_folder" ```
@@ -99,22 +100,21 @@ Select fragment size
 ## Visualization
 
 #### Creating browser tracks
-Create a bigWig file for visualizing the peak covrage using bamCoverage in deepTools. 
-An alternative visualization tool is [Integrative Genomics Viewer](https://software.broadinstitute.org/software/igv/).The Peak files can be loaded directly (File → Load from File). Viewing BAM files with IGV requires sorted (by coordinate) and indexed using SAMtools.
-For making plot BAM file can be converted to bed (bam to bed) using [bedtools](https://bedtools.readthedocs.io/en/latest/content/tools/bamtobed.html) and load to IGV.  
+Create a bigWig file for visualizing the peak coverage using bamCoverage in deepTools.
+An alternative visualization tool is [Integrative Genomics Viewer](https://software.broadinstitute.org/software/igv/). The Peak files can be loaded directly (File → Load from File). Viewing BAM files with IGV requires sorted (by coordinate) and indexing using SAMtools.
+For making a plot BAM file can be converted to bed (bam to bed) using [bedtools](https://bedtools.readthedocs.io/en/latest/content/tools/bamtobed.html) and load to IGV.  
 
 ## Peak annotation
 
-[HOMER](http://homer.ucsd.edu/homer/index.html) is a suite of software designed for motif discovery. It takes a MACS peak file bed format as a input and checks for the enrichment of both known sequence motifs and de novo motifs and annotate the peak based on the genome co-ordinate.
+[HOMER](http://homer.ucsd.edu/homer/index.html) is a suite of software designed for motif discovery. It takes a MACS peak file bed format as input and checks for the enrichment of both known sequence motifs and de novo motifs and annotates the peak based on the genome coordinate.
 
 ## Identification of Super Enhancers
-Three key characteristics used to identify an enhancer region.
+Three key characteristics are used to identify an enhancer region.
 1. Active enhancers are found in open chromatin regions devoid of nucleosomes, which allows for binding of the transcriptional machinery, including RNA polymerase, transcription factors, and co-activators.
-2. Active enhancer regions are typically enriched with a posttranslational modification histone mark such as monomethylation at H3 lysine 4 (H3K4me1) and acetylation at H3 lysine 27 (H3K27ac). 
+2. Active enhancer regions are typically enriched with a posttranslational modification histone mark such as monomethylation at H3 lysine 4 (H3K4me1) and acetylation at H3 lysine 27 (H3K27ac).
 3. Putative enhancer regions often contain conserved DNA sequences for binding to specific transcription factors.
 
-Tool can be used to find the super enhnacer. 
-[ROSE](http://younglab.wi.mit.edu/super_enhancer_code.html) and 
+The tool can be used to find the super enhancer.
+[ROSE](http://younglab.wi.mit.edu/super_enhancer_code.html) and
 [Homer](http://homer.ucsd.edu/homer/ngs/peaks.html#Finding_Super_Enhancers)
-
 
