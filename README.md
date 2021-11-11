@@ -45,8 +45,21 @@ The R package [ATACseqQC](https://bioconductor.org/packages/release/bioc/html/AT
 
 ### FastQC
 It is generally a good idea to generate some quality metrics for raw sequence data using [FastQC]( https://www.bioinformatics.babraham.ac.uk/projects/fastqc/).
+``` fasqc SRR446027_1.fastq ```
+### Triming 
+Quality-based trimming, as well as Adapter removal, can be done in [Flexbar](https://github.com/seqan/flexbar/wiki/Manual)
+``` java -jar $TRIMMOMATIC/trimmomatic-0.30.jar SE \
+     -threads 16 \
+     -phred33 \
+     Sample1.fastq Sapmple1_pp.fastq \
+     ILLUMINACLIP:$TRIMMOMATIC/adapters/TruSeq3-SE.fa:2:30:10 \
+     LEADING:10 TRAILING:10 SLIDINGWINDOW:4:15 MINLEN:36 ``` 
 
-Quality-based trimming, as well as Adapter removal, can be done in [Flexbar](https://github.com/seqan/flexbar)
+######## Removing adaptor and quality check for the paired-end result 
+
+###flexbar -r $1 -t $2/$target -n 20 -z BZ2 -m 30 -u 0 -q 28 -a /biosw/flexbar/Adapter.fa -f sanger
+flexbar -r $1 -p $2 -t $3/$target -n 20 -z GZ -m 30 -u 0 -q TAIL -qt 28 -a /biosw/flexbar/Adapter.f -qf sanger -j
+
 ## Alignment and filtering
 #### Genome indexing
 
