@@ -48,6 +48,7 @@ It is generally a good idea to generate some quality metrics for raw sequence da
 ``` fasqc SRR446027_1.fastq ```
 ### Triming 
 Quality-based trimming, as well as Adapter removal, can be done in [Flexbar](https://github.com/seqan/flexbar/wiki/Manual)
+
 ``` java -jar $TRIMMOMATIC/trimmomatic-0.30.jar SE \
      -threads 16 \
      -phred33 \
