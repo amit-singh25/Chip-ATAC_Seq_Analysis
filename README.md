@@ -19,7 +19,7 @@ Required packages for processing the ATAC-seq pipeline.
 
 Required packages for processing the ATAC-seq pipeline.
 
-The following software can be installed in the cluster either from source code or from conda[conda](https://conda.io/en/latest/) platform.
+The following software can be installed in the cluster either from source code or from [conda](https://conda.io/en/latest/) platform.
 
 [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
@@ -93,9 +93,9 @@ Model-based Analysis of ChIP-Seq [(MACS2)](http://liulab.dfci.harvard.edu/MACS/i
 predict fragment length
 
 ```macs2 predictd -i sample_sorted_filterdup.bed -g hs -m 5 20```
-
 ```macs2 callpeak -t sample1.fastq_sorted.bam-c "control.fastq_sorted.bam -g hs -f BAM --keep-dup auto --bdg --outdir ~/Desktop/peak_folder```
-###Select fragment size
+
+### Select fragment size
 
 ```macs2 callpeak -t sample1.fastq_sorted.bam -c control.fastq_sorted.bam -g hs -f BAM --keep-dup auto --bdg --nomodel --extsize 270 --outdir ~/Desktop/peak_folder ```
 
