@@ -67,6 +67,12 @@ For many model organisms, the genome and pre-built reference indexes are availab
 
 The next step is to align the reads to a reference genome. There are many programs available to perform the alignment. Two of the most popular are [BWA](http://bio-bwa.sourceforge.net/bwa.shtml) and [Bowtie2](http://bowtie-bio.sourceforge.net/index.shtml). Here focus more on Bowtie2.
 
+##### alignment in bowtie2 for single end and paired end alignmnet 
+
+``` bowtie2 -x ~/genome/Mus_musculus/Ensembl/GRCm38/Sequence/Bowtie2Index/genome -U SRR2339650.fastq -S SRR2339650.sam ``` 
+
+``` bowtie2 -x ~/genome/Mus_musculus/Ensembl/GRCm38/Sequence/Bowtie2Index/genome -1 Reads1.fastq -2 Reads2.fastq –S DNA.sam ``` 
+
 ## Alignment Manipulation
 
 #### Mitochondrial reads
