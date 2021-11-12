@@ -51,12 +51,6 @@ It is generally a good idea to generate some quality metrics for raw sequence da
 ### Triming 
 Quality-based trimming, as well as Adapter removal, can be done in [Flexbar](https://github.com/seqan/flexbar/wiki/Manual)
 
-``` java -jar $TRIMMOMATIC/trimmomatic-0.30.jar SE \
-     -threads 16 \
-     -phred33 \
-     Sample1.fastq Sapmple1_pp.fastq \
-     ILLUMINACLIP:$TRIMMOMATIC/adapters/TruSeq3-SE.fa:2:30:10 \
-     LEADING:10 TRAILING:10 SLIDINGWINDOW:4:15 MINLEN:36 ```
 
 ######## Removing adaptor and quality check for the paired-end result 
 
