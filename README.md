@@ -60,8 +60,9 @@ Quality-based trimming, as well as Adapter removal, can be done in [Flexbar](htt
 
 ## Alignment and filtering
 #### Genome indexing
-
 For many model organisms, the genome and pre-built reference indexes are available from [iGenomes](https://support.illumina.com/sequencing/sequencing_software/igenome.html). Bowtie2 indexes can be made directly from [FASTA](ftp://ftp.ensembl.org/pub/release-97/fasta/)genome file using bowtie2-build.
+
+bwa index mouse.fasta
 
 #### Alignment
 
