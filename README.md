@@ -53,9 +53,8 @@ Quality-based trimming, as well as Adapter removal, can be done in [Flexbar](htt
 
 
 ######## Removing adaptor and quality check for the paired-end result 
-
-###flexbar -r $1 -t $2/$target -n 20 -z BZ2 -m 30 -u 0 -q 28 -a /biosw/flexbar/Adapter.fa -f sanger
-flexbar -r $1 -p $2 -t $3/$target -n 20 -z GZ -m 30 -u 0 -q TAIL -qt 28 -a /biosw/flexbar/Adapter.f -qf sanger -j
+```flexbar -r $1 -t $2/$target -n 20 -z BZ2 -m 30 -u 0 -q 28 -a /biosw/flexbar/Adapter.fa -f sanger ```
+``` flexbar -r $1 -p $2 -t $3/$target -n 20 -z GZ -m 30 -u 0 -q TAIL -qt 28 -a /biosw/flexbar/Adapter.f -qf sanger -j ```
 
 ## Alignment and filtering
 #### Genome indexing
