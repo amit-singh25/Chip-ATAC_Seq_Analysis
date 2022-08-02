@@ -46,12 +46,10 @@ VALIDATION_STRINGENCY=LENIENT
 #MarkDuplicates will add a FALG 1024 to duplicate reads, we can remove them using samtools:
 samtools view -h -b -F 1024 ${name}_sort_marked.bam >${name}_sort_mark.rmDup.bam
 
-
 ##convert bigwig file
 bamCoverage -b ${out}/${name}_sort.bam -o ${out}/${name}_sort.bigWig
 ##convert bam file to bed file 
 bedtools bamtobed -${out}/${name}_sort.bam > ${out}/${name}_sort.bed
-
 
 ######single end
 bowtie2 -p 8 -x ${index}/genome -sensitive-local -U ${data}/${name}.fastq -S ${out}/${name}.sam
@@ -60,9 +58,6 @@ samtools sort ${out}/${name}.bam >${out}/${name}_sort.bam
 samtools index ${out}/${name}_sort.bam
 bedtools bamtobed -i ${out}/${name}_sort.bam >${out}/${name}_sort.bed
 bamCoverage -b ${out}/${name}_sort.bam -o ${out}/${name}_sort.bigWig
-
-
-
 
 ########## for sbatch 
 #!/bin/sh
