@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #PBS -N macs
 ##PBS -j oe 
@@ -8,9 +7,7 @@
 #PBS -l nodes=1:ppn=8   
 #PBS -o macs.stdout
 #PBS -e macs.stderr
-
 name=$1
-
 out=/home/bq_asingh/chip_ana
 data=/home/bq_asingh/chip_data
 genome=/home/bq_asingh/genome
